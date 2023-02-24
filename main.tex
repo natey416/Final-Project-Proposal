@@ -186,7 +186,7 @@ In addition to creating the lightsabers, we will make our software easy enough t
 
 \section{PROBLEM STATEMENT}
 
-\bf{OUR PROBLEM:} Lightsaber to solve Children's Entertainment and nostalgia for adults.
+OUR PROBLEM: Lightsaber to solve Children's Entertainment and nostalgia for adults.
 
 %Here you will go into more detail on what problem you hope to solve or address.  You should discuss what the problem is and why it is important to solve it. In this section, you need to be clear on what the problem is, so do not think of this as a ``light'' section. It helps to define your project.
 
@@ -196,9 +196,18 @@ In addition to creating the lightsabers, we will make our software easy enough t
 
 \section{PROBLEM SOLUTION}
 
-Our solution involves using the LIS3DH accelerometer that is included within the Circuit Playground. This sensor will give us acceleration data that we can use to detect user swing and thrust inputs. The Circuit Playground can read .wav files, which we can use to play idle, swing, and clash sounds through the Circuit Playground's internal speaker. This speaker may not be loud enough, so an external speaker may be required. 
+Our solution involves using the LIS3DH accelerometer that is included within the Circuit Playground. This sensor will give us acceleration data that we can use to detect user swing and thrust inputs. The Circuit Playground can read .wav files, which we can use to play idle, swing, and clash sounds through the Circuit Playground's internal speaker. This speaker may not be loud enough, so an external speaker and driver may be required. 
 
-The lightsaber can be ignited with a single switch on the side of the assembly, with a potentiometer beneath it that can control the extension and retraction rate of the saber. 
+The lightsaber can be ignited with a single switch on the side of the assembly, with a potentiometer beneath it that can control the extension and retraction rate of the saber. Many Star Wars fans have different preferences for older lightsaber styles that have slow extensions, and a different flicker pattern than the new ones. We would like our solution to fill any personal preferences the end user would have. 
+
+A secondary button would allow the user to access various features or extra sound effects, such as blaster deflections or opponent lock sounds. The button could also be used to access a sound-based menu that the user can use to change parameters, such as the sound font or volume. In this menu, the ignition button can be used to cycle the parameter. 
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=4.5in]{Circuit_Diagram.png}
+  \caption{Propsed circuit diagram with 2 buttons, potentiometer, and neopixel strip.}
+  \label{fig:CircuitDiagram}
+  \end{figure}
 
 %You must also include a table that lists all the parts that you wish to have. As announced in class, you will have the parts listed in Table \ref{table:parts_list}. We have plenty of two additional parts. Those are a conductive adhesive strip and a neopixel strip. I do have some other parts, such as arcade buttons and some additional sensors. You can certainly ask for something, and I will see what I can do. Change the table below to reflect the parts you are requesting.
 
@@ -232,41 +241,36 @@ The lightsaber can be ignited with a single switch on the side of the assembly, 
   \end{center}
   \end{table}
 
-Finally, you can also include any pseudo code or any code snippets you have gathered so far.  This is not required, but if you found some starter code or came up with some ideas for the code, put it here. If you want to embed code into \LaTeX, you can use the example below on how to do this in \LaTeX.
+There are several different ways the problem can be solved using code, but there are several resources online that provide examples that we can use to start coding for this project. On Adafruit's website is an article titled \emph{CircuitPython Made Easy on Circuit Playground Express and Bluefruit}, which provides an example of how to play sound files. This example uses the cp function from the adafruit\_circuitplayground library. \cite{adafruitPlayfile} 
+  %Finally, you can also include any pseudo code or any code snippets you have gathered so far.  This is not required, but if you found some starter code or came up with some ideas for the code, put it here. If you want to embed code into \LaTeX, you can use the example below on how to do this in \LaTeX.
 
 \begin{lstlisting}[language=Arduino]
-#include <Adafruit_CircuitPlayground.h>
-
-void setup() {
-  CircuitPlayground.begin();
-}
-
-void loop() {
-  CircuitPlayground.clearPixels();
-
-  delay(500);
-
-  CircuitPlayground.setPixelColor(0, 255,   0,   0);
-  CircuitPlayground.setPixelColor(1, 128, 128,   0);
-  CircuitPlayground.setPixelColor(2,   0, 255,   0);
-  CircuitPlayground.setPixelColor(3,   0, 128, 128);
-  CircuitPlayground.setPixelColor(4,   0,   0, 255);
+  # SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+  # SPDX-License-Identifier: MIT
   
-  CircuitPlayground.setPixelColor(5, 0xFF0000);
-  CircuitPlayground.setPixelColor(6, 0x808000);
-  CircuitPlayground.setPixelColor(7, 0x00FF00);
-  CircuitPlayground.setPixelColor(8, 0x008080);
-  CircuitPlayground.setPixelColor(9, 0x0000FF);
- 
-  delay(5000);
-}
+  """THIS EXAMPLE REQUIRES A WAV FILE FROM THE examples FOLDER IN THE
+  Adafruit_CircuitPython_CircuitPlayground REPO found at:
+  https://github.com/adafruit/Adafruit_CircuitPython_CircuitPlayground/tree/main/examples
+  
+  Copy the "dip.wav" and "rise.wav" files to your CIRCUITPY drive.
+  
+  Once the files are copied, this example plays a different wav file for each button pressed!"""
+  from adafruit_circuitplayground import cp
+  
+  while True:
+      if cp.button_a:
+          cp.play_file("dip.wav")
+      if cp.button_b:
+          cp.play_file("rise.wav")
 \end{lstlisting}
+
+Another good resource comes again from adafruit's website, and is part of the circuit playground's tutorial wiki. It includes some functions we can use to read data from the accelerometer, such as \lstinline{CircuitPlayground.motionX()} and setting the accelerometer's sensitivity with \lstinline{CircuitPlayground.setAccelRange(range)}. \cite{adafruitAccelerometer}
 
 \section{CONCLUSION}
 Finally, wrap up your proposal. This only needs to be one or two paragraphs, but it should conclude with what you plan to do and the why and how. Yes, this may seem repetitive, but that is intentional. Do not forget to update your references as those will appear below in a seperate page.
 
 \newpage
-%\section{References}
+\section{References}
 \printbibliography[heading=subbibintoc]
 %\bibliographystyle{plain}
 %\bibliography{ref}
