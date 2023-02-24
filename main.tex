@@ -188,21 +188,22 @@ In addition to creating the lightsabers, we will make our software easy enough t
 
 \bf{OUR PROBLEM:} Lightsaber to solve Children's Entertainment and nostalgia for adults.
 
-Here you will go into more detail on what problem you hope to solve or address.  You should discuss what the problem is and why it is important to solve it. In this section, you need to be clear on what the problem is, so do not think of this as a ``light'' section. It helps to define your project.
+%Here you will go into more detail on what problem you hope to solve or address.  You should discuss what the problem is and why it is important to solve it. In this section, you need to be clear on what the problem is, so do not think of this as a ``light'' section. It helps to define your project.
 
-Your team needs to do some research into the problem at hand. Because of that, you should have around two to three references that you are pulling from. There are lots of places you can find references from including the ISU library and Google Scholar. I would also suggest looking at Adafruit's website, as you may find inspiration or looking to improve something already there. Remember to cite your sources though. If you find something online, that can often be citation.
+%Your team needs to do some research into the problem at hand. Because of that, you should have around two to three references that you are pulling from. There are lots of places you can find references from including the ISU library and Google Scholar. I would also suggest looking at Adafruit's website, as you may find inspiration or looking to improve something already there. Remember to cite your sources though. If you find something online, that can often be citation.
 
-When you create your ``ref.bib'' file, don't forget to follow the standards for a BiBTex file. Certain things like webistes requires certain keywords for it to render properly. There are lots of sources online to help with this and many places like the ISU Library and Google Scholar can also generate text that is compatible with a BiBTex file. Once you have your Bib file ready, don't forget to cite your citations in your proposal like this \cite{einstein} or this \cite{dirac}.
+%When you create your ``ref.bib'' file, don't forget to follow the standards for a BiBTex file. Certain things like webistes requires certain keywords for it to render properly. There are lots of sources online to help with this and many places like the ISU Library and Google Scholar can also generate text that is compatible with a BiBTex file. Once you have your Bib file ready, don't forget to cite your citations in your proposal like this \cite{einstein} or this \cite{dirac}.
 
 \section{PROBLEM SOLUTION}
 
-\bf{Lightsaber}. 
-Here go over your approach to your solution and what your solution is. You must include at least one image that shows your concept. This image can be a sketch or drawing or some pictures that show your concept. Make sure you reference the image(s) like this - Figure \ref{fig:cpx}. Finally, make sure you replace the stock image I included. You should also reference any sources you had from your problem statement as well.
+Our solution involves using the LIS3DH accelerometer that is included within the Circuit Playground. This sensor will give us acceleration data that we can use to detect user swing and thrust inputs. The Circuit Playground can read .wav files, which we can use to play idle, swing, and clash sounds through the Circuit Playground's internal speaker. This speaker may not be loud enough, so an external speaker may be required. 
 
-You must also include a table that lists all the parts that you wish to have. As announced in class, you will have the parts listed in Table \ref{table:parts_list}. We have plenty of two additional parts. Those are a conductive adhesive strip and a neopixel strip. I do have some other parts, such as arcade buttons and some additional sensors. You can certainly ask for something, and I will see what I can do. Change the table below to reflect the parts you are requesting.
+The lightsaber can be ignited with a single switch on the side of the assembly, with a potentiometer beneath it that can control the extension and retraction rate of the saber. 
+
+%You must also include a table that lists all the parts that you wish to have. As announced in class, you will have the parts listed in Table \ref{table:parts_list}. We have plenty of two additional parts. Those are a conductive adhesive strip and a neopixel strip. I do have some other parts, such as arcade buttons and some additional sensors. You can certainly ask for something, and I will see what I can do. Change the table below to reflect the parts you are requesting.
 
 \begin{table}[ht]
-  \caption{Parts available for teams}
+  \caption{Parts List}
   \label{table:parts_list}
   \begin{center}
   \begin{tabular}{|p{3in}|c|}
@@ -216,6 +217,16 @@ You must also include a table that lists all the parts that you wish to have. As
   AAA Battery Holder & 1 \\
   \hline
   USB Cable & 1 \\
+  \hline
+  Button & 2 \\
+  \hline
+  Speaker & 1 \\
+  \hline
+  Potentiometer & 1 \\
+  \hline
+  Two Position switch & 1 \\
+  \hline
+  Neopixel Strip & 1 meter \\
   \hline
   \end{tabular}
   \end{center}
